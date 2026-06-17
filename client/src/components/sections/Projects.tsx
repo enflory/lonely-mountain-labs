@@ -54,8 +54,8 @@ const PROJECTS = [
     title: "Ranger",
     tagline: "Your personal headhunter, working nightly.",
     description:
-      "A personal headhunter agent that monitors a curated watchlist for new roles and hunts trusted VC and accelerator sources for companies worth knowing. Every match is scored against a learned model of your taste and delivered as a daily Telegram briefing that sharpens the more you react to it.",
-    status: "Live",
+      "A personal headhunter agent that monitors a curated watchlist for new roles and hunts trusted, personalized sources for companies worth knowing. Every match is scored against a learned model of your taste and delivered as a daily Telegram briefing that sharpens the more you react to it.",
+    status: "Live · Personal",
     link: null,
     visual: "ranger",
     year: "2026",
@@ -169,14 +169,14 @@ export default function Projects() {
               <span
                 style={{
                   color:
-                    p.status === "Live"
+                    p.status.startsWith("Live")
                       ? accent
                       : p.status === "In Development"
                         ? "#9c6b3a"
                         : "#6b6856",
                 }}
               >
-                {p.status === "Live" ? "\u25CF " : "\u25CB "}
+                {p.status.startsWith("Live") ? "\u25CF " : "\u25CB "}
                 {p.status}
               </span>
             </div>
