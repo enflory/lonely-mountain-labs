@@ -50,16 +50,16 @@ const PROJECTS = [
     tags: ["AI", "Voice", "Web"],
   },
   {
-    id: "particle-life",
-    title: "Particle Life",
-    tagline: "Beautiful emergent patterns you can watch forever.",
+    id: "ranger",
+    title: "Ranger",
+    tagline: "Your personal headhunter, working nightly.",
     description:
-      "Just a fun one. An interactive artificial life simulation with all the mesmerizing essence of a lava lamp screensaver. Colored particles attract and repel each other, creating beautiful emergent patterns you can watch forever.",
+      "A personal headhunter agent that monitors a curated watchlist for new roles and hunts trusted VC and accelerator sources for companies worth knowing. Every match is scored against a learned model of your taste and delivered as a daily Telegram briefing that sharpens the more you react to it.",
     status: "Live",
-    link: "https://lonelymtnlabs.com/particle-life",
-    visual: "particles",
+    link: null,
+    visual: "ranger",
     year: "2026",
-    tags: ["Canvas", "Simulation", "Just for fun"],
+    tags: ["AI", "Agent", "Telegram"],
   },
 ];
 
