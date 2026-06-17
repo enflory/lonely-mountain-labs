@@ -20,7 +20,6 @@ This is the Lonely Mountain Labs website — a portfolio/landing page for person
 - `client/src/components/layout/` — Navbar and Footer
 - `client/src/components/ui/` — reusable UI primitives (shadcn/ui)
 - `docs/` — built static output deployed by GitHub Pages
-- `docs/particle-life/` — standalone Particle Life app (single HTML file, not part of the React build)
 - `server/` — Express server from original Replit setup, not used in current static hosting
 
 ## Build & Deploy
@@ -34,10 +33,9 @@ cp -r dist/public/* docs/                # copy to GitHub Pages dir
 ## Important Notes
 
 - The `docs/` directory is the live deployment. Changes to `client/` source need to be built and copied to `docs/` to take effect.
-- Particle Life (`docs/particle-life/index.html`) is a standalone file — edit it directly, no build step needed.
 - The `server/` directory and database config (`drizzle.config.ts`) are artifacts from the original Replit full-stack setup. They are not used for the current static deployment.
 - The Replit-specific Vite plugins are conditionally loaded and only activate in a Replit environment.
 - The About section has been folded into the Projects section as an intro block. There is no standalone About component.
 - `client/public/assets/mt_hood_clean.svg` — Mt Hood illustration used as the hero backdrop.
-- `ProjectVisuals.tsx` contains animated mini-visual components rendered inside each project card (volume bar, voice waveform, manuscript pages, knowledge index, particle canvas).
+- `ProjectVisuals.tsx` contains animated mini-visual components rendered inside each project card (volume bar, voice waveform, manuscript pages, knowledge index, Ranger briefing).
 - Framer Motion is still a dependency but is no longer used in the current components. It can be removed if desired.

@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 
 const fg = "#1a1a1a";
 const muted = "#9a9a93";
@@ -169,76 +169,45 @@ function GiftViz() {
   );
 }
 
-function ParticlesViz() {
-  const canvasRef = useRef<HTMLCanvasElement>(null);
+function RangerViz() {
+  const roles = [
+    { co: "Anthropic", role: "Product Engineer", score: 94 },
+    { co: "Vercel", role: "Founding DevRel", score: 88 },
+    { co: "Linear", role: "Product Manager", score: 81 },
+  ];
 
-  useEffect(() => {
-    const canvas = canvasRef.current;
-    if (!canvas) return;
-    const ctx = canvas.getContext("2d");
-    if (!ctx) return;
-    const dpr = window.devicePixelRatio || 1;
-
-    const colors = [fg, accent, muted, "#5a7a4a", "#4a6e7a"];
-    const N = 80;
-    let particles: { x: number; y: number; vx: number; vy: number; c: string; r: number }[] = [];
-    let w = 0;
-    let h = 0;
-
-    const init = () => {
-      const rect = canvas.getBoundingClientRect();
-      w = rect.width;
-      h = rect.height;
-      canvas.width = w * dpr;
-      canvas.height = h * dpr;
-      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-      particles = Array.from({ length: N }, () => ({
-        x: Math.random() * w,
-        y: Math.random() * h,
-        vx: (Math.random() - 0.5) * 0.5,
-        vy: (Math.random() - 0.5) * 0.5,
-        c: colors[Math.floor(Math.random() * colors.length)],
-        r: 1.2 + Math.random() * 1.4,
-      }));
-    };
-
-    // Wait a frame so the container has layout
-    requestAnimationFrame(() => {
-      init();
-
-      const tick = () => {
-        ctx.clearRect(0, 0, w, h);
-        for (const p of particles) {
-          const cx = w / 2;
-          const cy = h / 2;
-          const dx = cx - p.x;
-          const dy = cy - p.y;
-          const d = Math.hypot(dx, dy) || 1;
-          p.vx += (dx / d) * 0.003 + (Math.random() - 0.5) * 0.03;
-          p.vy += (dy / d) * 0.003 + (Math.random() - 0.5) * 0.03;
-          p.vx *= 0.97;
-          p.vy *= 0.97;
-          p.x += p.vx;
-          p.y += p.vy;
-          if (p.x < 0) p.x = w;
-          if (p.x > w) p.x = 0;
-          if (p.y < 0) p.y = h;
-          if (p.y > h) p.y = 0;
-          ctx.fillStyle = p.c;
-          ctx.beginPath();
-          ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-          ctx.fill();
-        }
-        raf = requestAnimationFrame(tick);
-      };
-      raf = requestAnimationFrame(tick);
-    });
-
-    let raf: number;
-    return () => cancelAnimationFrame(raf);
-  }, []);
-
-  return <canvas ref={canvasRef} className="w-full h-full block" />;
+  return (
+    <div className="w-full h-full flex flex-col justify-center gap-1.5" style={{ padding: "12px 16px" }}>
+      <div className="flex justify-between items-baseline font-mono text-[9px] text-muted-foreground uppercase mb-0.5" style={{ letterSpacing: "0.08em" }}>
+        <span>
+          <span className="text-accent">&bull;</span> Daily briefing
+        </span>
+        <span>3 new roles</span>
+      </div>
+      {roles.map((r, i) => (
+        <div key={i} className="flex items-center gap-2">
+          <span
+            className="font-mono text-[9px] overflow-hidden"
+            style={{ color: fg, width: 50, whiteSpace: "nowrap", textOverflow: "ellipsis" }}
+          >
+            {r.co}
+          </span>
+          <span
+            className="font-serif italic text-[10px] flex-1 overflow-hidden"
+            style={{ color: muted, whiteSpace: "nowrap", textOverflow: "ellipsis" }}
+          >
+            {r.role}
+          </span>
+          <div className="rounded-sm overflow-hidden" style={{ width: 28, height: 3, background: muted + "33" }}>
+            <div style={{ width: `${r.score}%`, height: "100%", background: accent }} />
+          </div>
+          <span className="font-mono text-[9px]" style={{ color: fg, width: 16, textAlign: "right" }}>
+            {r.score}
+          </span>
+        </div>
+      ))}
+    </div>
+  );
 }
 
 function KnowledgeViz() {
@@ -294,8 +263,8 @@ export default function ProjectVisual({ kind }: { kind: string }) {
       return <GiftViz />;
     case "knowledge":
       return <KnowledgeViz />;
-    case "particles":
-      return <ParticlesViz />;
+    case "ranger":
+      return <RangerViz />;
     default:
       return null;
   }
