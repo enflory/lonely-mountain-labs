@@ -55,7 +55,7 @@ const PROJECTS = [
     tagline: "Your personal headhunter, working nightly.",
     description:
       "A personal headhunter agent that monitors a curated watchlist for new roles and hunts trusted, personalized sources for companies worth knowing. Every match is scored against a learned model of your taste and delivered as a daily Telegram briefing that sharpens the more you react to it.",
-    status: "Live · Personal",
+    status: "Live · Private",
     link: null,
     visual: "ranger",
     year: "2026",
