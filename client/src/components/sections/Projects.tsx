@@ -15,6 +15,19 @@ const PROJECTS = [
     tags: ["macOS", "Swift", "Menu bar"],
   },
   {
+    id: "lotr",
+    title: "The Lord of the Rings RPG",
+    tagline: "A pixel-art walk from Bag End into the wide world.",
+    description:
+      "A top-down pixel-art RPG retelling of The Fellowship of the Ring, built in Phaser 3 with every sprite, tile, and sound procedurally generated — no external art or audio assets. A non-commercial fan project; Chapter One covers the road from Bag End to the Brandywine crossing, with autosave so you can pick the journey back up where you left it.",
+    status: "Live",
+    link: "https://lotr.lonelymtnlabs.com",
+    repo: "https://github.com/enflory/lotr-rpg",
+    visual: "lotr",
+    year: "2026",
+    tags: ["Phaser 3", "Pixel Art", "Game"],
+  },
+  {
     id: "ingolmo",
     title: "Ingolmo",
     tagline: "A living research base, built by AI agents.",
@@ -65,19 +78,6 @@ const PROJECTS = [
     visual: "ranger",
     year: "2026",
     tags: ["AI", "Agent", "Telegram"],
-  },
-  {
-    id: "lotr",
-    title: "The Lord of the Rings",
-    tagline: "A pixel-art walk from Bag End into the wide world.",
-    description:
-      "A top-down pixel-art RPG retelling of The Fellowship of the Ring, built in Phaser 3 with every sprite, tile, and sound procedurally generated — no external art or audio assets. A non-commercial fan project; Chapter One covers the road from Bag End to the Brandywine crossing, with autosave so you can pick the journey back up where you left it.",
-    status: "Live",
-    link: "https://lotr.lonelymtnlabs.com",
-    repo: "https://github.com/enflory/lotr-rpg",
-    visual: "lotr",
-    year: "2026",
-    tags: ["Phaser 3", "Pixel Art", "Game"],
   },
 ];
 
@@ -257,7 +257,7 @@ export default function Projects() {
                       className="fn-link font-serif italic normal-case text-sm"
                       style={{ letterSpacing: "normal" }}
                     >
-                      {p.repo ? "Play" : "Visit"} &rarr;
+                      {p.repo ? "Play" : p.link.includes("github.com") ? "Code" : "Visit"} &rarr;
                     </a>
                   )}
                   {p.repo && (

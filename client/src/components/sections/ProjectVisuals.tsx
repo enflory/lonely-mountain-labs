@@ -286,9 +286,9 @@ function LotrViz() {
       </svg>
       <div
         className="font-serif text-center"
-        style={{ fontSize: 12, letterSpacing: "0.22em", textTransform: "uppercase", color: fg }}
+        style={{ fontSize: 12, letterSpacing: "0.18em", textTransform: "uppercase", color: fg }}
       >
-        The Lord of the Rings
+        The Lord of the Rings RPG
       </div>
       <div
         className="font-mono text-[9px] uppercase"
