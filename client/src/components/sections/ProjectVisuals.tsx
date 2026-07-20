@@ -251,6 +251,55 @@ function KnowledgeViz() {
   );
 }
 
+function LotrViz() {
+  const [t, setT] = useState(0);
+  useEffect(() => {
+    let raf: number;
+    const start = performance.now();
+    const tick = () => {
+      setT((performance.now() - start) / 1000);
+      raf = requestAnimationFrame(tick);
+    };
+    raf = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(raf);
+  }, []);
+
+  const ring = 32;
+  const points = Array.from({ length: ring }, (_, i) => {
+    const angle = (i / ring) * Math.PI * 2;
+    return { x: Math.round(6 + Math.cos(angle) * 5), y: Math.round(6 + Math.sin(angle) * 5) };
+  });
+  const glintAngle = t * 0.9;
+  const glint = {
+    x: Math.round(6 + Math.cos(glintAngle) * 5),
+    y: Math.round(6 + Math.sin(glintAngle) * 5),
+  };
+  const blink = (t % 1.2) < 0.7;
+
+  return (
+    <div className="w-full h-full flex flex-col items-center justify-center gap-1.5" style={{ padding: "10px 18px" }}>
+      <svg width="26" height="26" viewBox="0 0 13 13" style={{ imageRendering: "pixelated" }}>
+        {points.map((p, i) => (
+          <rect key={i} x={p.x} y={p.y} width={1} height={1} fill={accent} />
+        ))}
+        <rect x={glint.x} y={glint.y} width={1} height={1} fill={fg} />
+      </svg>
+      <div
+        className="font-serif text-center"
+        style={{ fontSize: 12, letterSpacing: "0.22em", textTransform: "uppercase", color: fg }}
+      >
+        The Lord of the Rings
+      </div>
+      <div
+        className="font-mono text-[9px] uppercase"
+        style={{ letterSpacing: "0.18em", color: accent, visibility: blink ? "visible" : "hidden" }}
+      >
+        Press enter
+      </div>
+    </div>
+  );
+}
+
 export default function ProjectVisual({ kind }: { kind: string }) {
   switch (kind) {
     case "volume":
@@ -265,6 +314,8 @@ export default function ProjectVisual({ kind }: { kind: string }) {
       return <KnowledgeViz />;
     case "ranger":
       return <RangerViz />;
+    case "lotr":
+      return <LotrViz />;
     default:
       return null;
   }

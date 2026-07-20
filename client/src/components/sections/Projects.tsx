@@ -9,6 +9,7 @@ const PROJECTS = [
       "A lightweight macOS menu bar app that automatically reduces your system volume during Spotify ads and restores it when music resumes. Unlike muting, which Spotify detects and pauses playback, Hush lowers the volume just enough to keep ads out of your head.",
     status: "Live",
     link: "https://github.com/enflory/hush",
+    repo: null,
     visual: "volume",
     year: "2026",
     tags: ["macOS", "Swift", "Menu bar"],
@@ -21,6 +22,7 @@ const PROJECTS = [
       "An AI-first knowledge repository where research is directed by a human but executed entirely by coding agents \u2014 investigating topics, synthesizing findings, and committing structured notes that accumulate durable context over time.",
     status: "Live",
     link: "https://github.com/enflory/ingolmo",
+    repo: null,
     visual: "knowledge",
     year: "2026",
     tags: ["AI", "Research", "Knowledge"],
@@ -33,6 +35,7 @@ const PROJECTS = [
       "AI-powered tools that help everyday writers craft memoirs with professional-grade editorial guidance. A new publishing stack built around authors, not gatekeepers.",
     status: "In Development",
     link: null,
+    repo: null,
     visual: "pages",
     year: "2026",
     tags: ["AI", "Publishing", "Memoir"],
@@ -45,6 +48,7 @@ const PROJECTS = [
       "A voice-powered AI interviewer that walks you through a structured career reflection, capturing your experience across six key areas and producing polished written summaries you can use for resumes, bios, or self-reflection.",
     status: "In Development",
     link: null,
+    repo: null,
     visual: "voice",
     year: "2026",
     tags: ["AI", "Voice", "Web"],
@@ -57,9 +61,23 @@ const PROJECTS = [
       "A personal headhunter agent that monitors a curated watchlist for new roles and hunts trusted, personalized sources for companies worth knowing. Every match is scored against a learned model of your taste and delivered as a daily Telegram briefing that sharpens the more you react to it.",
     status: "Live · Private",
     link: null,
+    repo: null,
     visual: "ranger",
     year: "2026",
     tags: ["AI", "Agent", "Telegram"],
+  },
+  {
+    id: "lotr",
+    title: "The Lord of the Rings",
+    tagline: "A pixel-art walk from Bag End into the wide world.",
+    description:
+      "A top-down pixel-art RPG retelling of The Fellowship of the Ring, built in Phaser 3 with every sprite, tile, and sound procedurally generated — no external art or audio assets. A non-commercial fan project; Chapter One covers the road from Bag End to the Brandywine crossing, with autosave so you can pick the journey back up where you left it.",
+    status: "Live",
+    link: "https://lotr.lonelymtnlabs.com",
+    repo: "https://github.com/enflory/lotr-rpg",
+    visual: "lotr",
+    year: "2026",
+    tags: ["Phaser 3", "Pixel Art", "Game"],
   },
 ];
 
@@ -229,16 +247,31 @@ export default function Projects() {
               style={{ letterSpacing: "0.1em" }}
             >
               <span>{p.tags.join(" \u00B7 ")}</span>
-              {p.link && (
-                <a
-                  href={p.link}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="fn-link font-serif italic normal-case text-sm"
-                  style={{ letterSpacing: "normal" }}
-                >
-                  Visit &rarr;
-                </a>
+              {(p.link || p.repo) && (
+                <span className="flex items-center gap-3">
+                  {p.link && (
+                    <a
+                      href={p.link}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="fn-link font-serif italic normal-case text-sm"
+                      style={{ letterSpacing: "normal" }}
+                    >
+                      {p.repo ? "Play" : "Visit"} &rarr;
+                    </a>
+                  )}
+                  {p.repo && (
+                    <a
+                      href={p.repo}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="fn-link font-serif italic normal-case text-sm"
+                      style={{ letterSpacing: "normal" }}
+                    >
+                      Code &rarr;
+                    </a>
+                  )}
+                </span>
               )}
             </div>
           </article>
