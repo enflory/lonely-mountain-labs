@@ -4,7 +4,7 @@ The website for [Lonely Mountain Labs](https://lonelymtnlabs.com) — an outpost
 
 ## What's Here
 
-The main website — a React + Vite single-page site showcasing Lonely Mountain Labs and its projects (Hush, Ingolmo, Project Legacy, Career Interviewer, Ranger).
+The main website — a React + Vite single-page site showcasing Lonely Mountain Labs and its projects (Hush, The Lord of the Rings RPG, Ingolmo, Project Legacy, Career Interviewer, Ranger).
 
 ## Design
 
@@ -41,7 +41,9 @@ npm run dev
 
 ## Deploying Changes
 
-1. Make changes to the source in `client/`
+1. Make changes to the source in `client/` on a feature branch
 2. Build: `npx vite build`
 3. Copy output to docs: `cp -r dist/public/* docs/`
-4. Commit and push to `main` — GitHub Pages will automatically redeploy
+4. Commit both the source changes and the rebuilt `docs/` output
+5. Push the branch and open a pull request for review
+6. Once merged to `main`, GitHub Pages automatically redeploys the site
