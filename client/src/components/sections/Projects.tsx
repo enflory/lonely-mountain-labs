@@ -1,3 +1,4 @@
+import ExternalArrow from "@/components/ExternalArrow";
 import ProjectVisual from "./ProjectVisuals";
 
 type Link = { label: string; href: string };
@@ -189,7 +190,7 @@ function Card({
                 className="fn-extlink font-serif italic normal-case text-[15px]"
                 style={{ letterSpacing: "normal" }}
               >
-                {l.label} <span className="fn-arrow">&#8599;</span>
+                {l.label} <ExternalArrow />
               </a>
             ))}
           </span>

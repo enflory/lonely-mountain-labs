@@ -150,17 +150,17 @@
   color: #7d5329;
   border-bottom-color: #7d5329;
 }
-/* Render the arrow in upright sans at the navbar's size. Inheriting the
-   link's italic serif draws a noticeably longer, slanted glyph, so the
-   card arrows and the navbar arrows would not match. */
-.fn-extlink .fn-arrow {
+/* The arrow is drawn, not typed, so it is immune to the italic serif of the
+   card link. Nudge it up to sit on the text's optical centre rather than the
+   baseline, and keep it clear of the link's underline. */
+.fn-arrow {
   display: inline-block;
-  font-family: var(--font-sans);
-  font-style: normal;
-  font-size: 13px;
+  vertical-align: -0.03em;
+  flex-shrink: 0;
   transition: transform 0.2s;
 }
-.fn-extlink:hover .fn-arrow {
+.fn-extlink:hover .fn-arrow,
+.fn-navext:hover .fn-arrow {
   transform: translate(2px, -2px);
 }
 
@@ -193,6 +193,41 @@
 }
 .fn-note:hover h3 {
   color: #9c6b3a;
+}
+
+/* Hero mountain backdrop.
+
+   Desktop: a little wider than the section, centred on it.
+
+   Mobile: the drawing is authored ~1450px wide and its treeline is a dense
+   row of fir silhouettes. Squeezed onto a 390px screen those firs merge into
+   one solid mass, which reads as a grey stripe painted across the hero rather
+   than as trees. Blowing the artwork up well past the viewport keeps the
+   individual trees resolvable, and dropping the anchor point pushes the peak
+   behind the headline so the treeline lands under the buttons instead of
+   through them. */
+.fn-mountain {
+  position: absolute;
+  left: 50%;
+  top: 52%;
+  width: 110%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 0;
+}
+/* 599px, not the 768px md breakpoint: the trees only start merging once the
+   drawing renders under ~650px wide, which the desktop rule does not do until
+   the viewport is below about 590px. Handing 600-767px back to the desktop
+   treatment keeps the summit in frame on tablets and wide phones, where 240vw
+   would crop to bare hillside. */
+@media (max-width: 599px) {
+  .fn-mountain {
+    top: 70%;
+    /* 240vw keeps the framing proportional on small phones; the 1000px cap
+       stops the drawing from running away near the breakpoint, where 240vw
+       would crop to bare hillside with neither summit nor treeline. */
+    width: min(240vw, 1000px);
+  }
 }
 
 /* Fade-up animation classes */

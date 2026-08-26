@@ -40,5 +40,9 @@ cp -r dist/public/* docs/                # copy to GitHub Pages dir
 - `Notes.tsx` renders **nothing** while its `NOTES` array is empty, so the site never advertises writing it does not have. Add an entry and the section appears.
 - The Pinecone copy was written against a refreshed local mirror of `eflory-stio/pinecone` (synced 2026-08-24, deployed agent version 19). The canonical repo lives in Stio's GitHub org and is not visible from Ethan's personal account, so re-verify before editing that card. Keep the copy at the level of architecture and outcome: no Stio table names, internal repo names, coworker names, or business figures.
 - `client/public/assets/mt_hood_clean.svg` — Mt Hood illustration used as the hero backdrop.
+  Its treeline is a dense row of fir silhouettes that merge into one solid bar once the
+  drawing renders below roughly 650px wide, which is why `.fn-mountain` in `index.css`
+  blows the artwork up past the viewport under 600px instead of scaling it down. Shrinking
+  the mobile width brings the grey stripe back.
 - `ProjectVisuals.tsx` contains the animated mini-visuals rendered inside each project card. Live kinds: `volume` (Hush), `pages` (Susy work), `lotr` (LOTR RPG), `agent` (Pinecone), `heat` (naur). Visuals for retired tiles were removed rather than left as dead code.
 - Framer Motion is still a dependency but is no longer used in the current components. It can be removed if desired.

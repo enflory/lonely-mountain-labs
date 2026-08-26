@@ -11,35 +11,35 @@ export default function Hero() {
 
   // Bottom padding holds the section at its original height on desktop, where
   // the mountain is centered at 52% of the section and a shorter headline would
-  // otherwise pull it up the page. Mobile keeps the original 100px: the artwork
-  // is proportionally shorter there, so the desktop value leaves a dead gap
-  // under the treeline.
+  // otherwise pull it up the page. Mobile keeps the original 100px: under 600px
+  // the artwork is anchored low and scaled past the viewport (see .fn-mountain),
+  // so the treeline already runs off the bottom edge and the taller desktop
+  // padding would only open a gap beneath it.
   return (
     <section
       className="relative overflow-hidden pb-[100px] md:pb-[184px]"
       style={{ paddingTop: 60, paddingLeft: 56, paddingRight: 56 }}
     >
-      {/* Mountain backdrop */}
-      <div
-        className="absolute pointer-events-none"
-        style={{
-          left: "50%",
-          top: "52%",
-          width: "110%",
-          transform: `translate(-50%, -50%) translateY(${scrollY * 0.08}px)`,
-          willChange: "transform",
-          zIndex: 0,
-        }}
-      >
-        <img
-          src="/assets/mt_hood_clean.svg"
-          alt=""
-          className="w-full h-auto block"
+      {/* Mountain backdrop. Placement lives in .fn-mountain so the mobile
+          breakpoint can override it; parallax rides on the inner wrapper so
+          this inline transform does not clobber the CSS centering. */}
+      <div className="fn-mountain">
+        <div
           style={{
-            opacity: 0,
-            animation: "fnMountainFade 1.6s ease-out 0.3s forwards",
+            transform: `translateY(${scrollY * 0.08}px)`,
+            willChange: "transform",
           }}
-        />
+        >
+          <img
+            src="/assets/mt_hood_clean.svg"
+            alt=""
+            className="w-full h-auto block"
+            style={{
+              opacity: 0,
+              animation: "fnMountainFade 1.6s ease-out 0.3s forwards",
+            }}
+          />
+        </div>
       </div>
 
       {/* Top meta line */}
