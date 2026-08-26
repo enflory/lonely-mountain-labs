@@ -57,10 +57,10 @@ export default function Hero() {
             margin: 0,
           }}
         >
-          Batteries, memoirs,<br />
-          <span className="italic font-light text-accent">pixel-art roads.</span>
+          A field I don&rsquo;t know,<br />
+          <span className="italic font-light text-accent">a question, a spec,</span>
           <br />
-          I build to learn.
+          a working model.
         </h1>
 
         <div className="fn-anim-3 flex flex-wrap gap-3.5 mt-9">
