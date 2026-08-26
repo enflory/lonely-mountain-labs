@@ -46,9 +46,9 @@ const FEATURED: Project[] = [
   {
     id: "naur",
     title: "naur",
-    tagline: "The stove that is also the power bank.",
+    tagline: "The cells finally got good enough. The canister can go.",
     description:
-      "Boil water for dinner and charge a phone from one device, with no fuel canister and nothing burning inside a tent. Step one was the unglamorous question: does the physics work, and does the cost? Several weeks of modeling say a qualified yes, and turned up one finding that reorganized the entire design. Prototype is specified and next. Sindarin for fire.",
+      "One device that boils water for dinner and charges the phone, so the stove and the power bank stop being two things you carry, and nothing burns inside the tent. Step one was the unglamorous question: does the physics work, and does the cost? Several weeks of modeling say a qualified yes, and turned up one finding that reorganized the entire design. Prototype is specified and next. Sindarin for fire.",
     status: "Research",
     links: [],
     visual: "heat",
