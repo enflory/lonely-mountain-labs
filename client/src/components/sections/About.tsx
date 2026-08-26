@@ -36,7 +36,7 @@ export default function About() {
           <p className="m-0" style={{ textWrap: "pretty" }}>
             The pattern doesn&rsquo;t change much. Find the gap, learn the domain fast
             enough to be useful, build the thing. The projects below are that same
-            habit pointed at whatever I was curious about that month, which is why a
+            habit pointed at whatever I was curious about, which is why a
             techno-economic model sits next to a pixel-art game.
           </p>
         </div>
