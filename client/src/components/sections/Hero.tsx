@@ -57,10 +57,10 @@ export default function Hero() {
             margin: 0,
           }}
         >
-          A field I don&rsquo;t know,<br />
-          <span className="italic font-light text-accent">a question, a spec,</span>
+          A question becomes<br />
+          <span className="italic font-light text-accent">a working model,</span>
           <br />
-          a working model.
+          faster every time.
         </h1>
 
         <div className="fn-anim-3 flex flex-wrap gap-3.5 mt-9">

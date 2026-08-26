@@ -21,7 +21,7 @@ export default function About() {
             letterSpacing: "-0.02em",
           }}
         >
-          Three fields, one habit.
+          Many fields, one habit.
         </h2>
 
         <div className="font-serif text-[17px] leading-relaxed" style={{ color: "#3a3a35" }}>
