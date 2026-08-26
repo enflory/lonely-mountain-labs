@@ -179,17 +179,17 @@ function Card({
       >
         <span>{p.tags.join(" · ")}</span>
         {p.links.length > 0 && (
-          <span className="flex items-center gap-3">
+          <span className="flex items-center gap-4">
             {p.links.map((l) => (
               <a
                 key={l.href}
                 href={l.href}
                 target="_blank"
                 rel="noreferrer"
-                className="fn-link font-serif italic normal-case text-sm"
+                className="fn-extlink font-serif italic normal-case text-[15px]"
                 style={{ letterSpacing: "normal" }}
               >
-                {l.label} &rarr;
+                {l.label} <span className="fn-arrow">&#8599;</span>
               </a>
             ))}
           </span>

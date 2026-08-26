@@ -41,8 +41,8 @@ export default function Navbar() {
           <button onClick={() => scrollToSection("#about")} className="fn-link" style={{ borderBottom: "none" }}>About</button>
           <button onClick={() => scrollToSection("#projects")} className="fn-link" style={{ borderBottom: "none" }}>Projects</button>
           <button onClick={() => scrollToSection("#contact")} className="fn-link" style={{ borderBottom: "none" }}>Contact</button>
-          <a href="https://github.com/enflory" target="_blank" rel="noreferrer" className="fn-link" style={{ borderBottom: "none" }}>GitHub</a>
-          <a href="https://www.linkedin.com/in/ethanflory/" target="_blank" rel="noreferrer" className="fn-link" style={{ borderBottom: "none" }}>LinkedIn</a>
+          <a href="https://github.com/enflory" target="_blank" rel="noreferrer" className="fn-navext">GitHub <span aria-hidden="true">&#8599;</span></a>
+          <a href="https://www.linkedin.com/in/ethanflory/" target="_blank" rel="noreferrer" className="fn-navext">LinkedIn <span aria-hidden="true">&#8599;</span></a>
         </div>
 
         {/* Mobile Toggle */}
@@ -60,8 +60,10 @@ export default function Navbar() {
           <button onClick={() => scrollToSection("#about")} className="text-left text-lg font-serif text-foreground hover:text-accent">About</button>
           <button onClick={() => scrollToSection("#projects")} className="text-left text-lg font-serif text-foreground hover:text-accent">Projects</button>
           <button onClick={() => scrollToSection("#contact")} className="text-left text-lg font-serif text-foreground hover:text-accent">Contact</button>
-          <a href="https://github.com/enflory" target="_blank" rel="noreferrer" className="text-lg font-serif text-foreground hover:text-accent">GitHub</a>
-          <a href="https://www.linkedin.com/in/ethanflory/" target="_blank" rel="noreferrer" className="text-lg font-serif text-foreground hover:text-accent">LinkedIn</a>
+          <div className="flex flex-wrap gap-3 pt-2">
+            <a href="https://github.com/enflory" target="_blank" rel="noreferrer" className="fn-navext text-base font-serif">GitHub <span aria-hidden="true">&#8599;</span></a>
+            <a href="https://www.linkedin.com/in/ethanflory/" target="_blank" rel="noreferrer" className="fn-navext text-base font-serif">LinkedIn <span aria-hidden="true">&#8599;</span></a>
+          </div>
         </div>
       )}
     </nav>
