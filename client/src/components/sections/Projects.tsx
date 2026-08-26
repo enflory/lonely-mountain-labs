@@ -33,7 +33,7 @@ const FEATURED: Project[] = [
     title: "Susy Flory & Shake Ridge Press",
     tagline: "Everything an author's business actually needs.",
     description:
-      "My mother is a working author with a growing memoir business. It started with rebuilding susyflory.com off a decade-old template, then building shakeridgepress.com from scratch for her press. The current question is a bigger one: what software does the business itself need? That part is still being scoped, which is the honest status. The reason this keeps going is that each thing worked well enough to earn the next one.",
+      "My mother is a NYT-bestselling author, memoir expert, and the founder and publisher at Shake Ridge Press. It started with rebuilding susyflory.com off a decade-old template, then building shakeridgepress.com from scratch for her press. The current question is a bigger one: what software does the business itself need, and how does technology help people better tell their own stories? That part is still being scoped, which is the honest status. The reason this keeps going is that each thing worked well enough to earn the next one.",
     status: "Live · Ongoing",
     links: [
       { label: "susyflory.com", href: "https://susyflory.com" },
