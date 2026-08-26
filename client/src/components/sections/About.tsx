@@ -11,7 +11,9 @@ export default function About() {
       className="px-5 md:px-14"
       style={{ paddingTop: 72, paddingBottom: 40, borderTop: "1px solid #d4c9af" }}
     >
-      <div style={{ maxWidth: 680 }}>
+      {/* Block is centered; text stays left-aligned so the paragraphs keep a
+          hard left edge to read against. */}
+      <div className="mx-auto" style={{ maxWidth: 680 }}>
         <h2
           className="font-serif m-0 mb-7"
           style={{
