@@ -9,8 +9,11 @@ export default function Hero() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  // Bottom padding holds the section at its original height. The mountain is
+  // centered at 52% of this section, so a shorter headline would otherwise
+  // pull it up the page.
   return (
-    <section className="relative overflow-hidden" style={{ padding: "60px 56px 100px" }}>
+    <section className="relative overflow-hidden" style={{ padding: "60px 56px 184px" }}>
       {/* Mountain backdrop */}
       <div
         className="absolute pointer-events-none"
