@@ -21,7 +21,7 @@ const FEATURED: Project[] = [
     title: "Pinecone",
     tagline: "An agent that reads the codebase, not just the database.",
     description:
-      "Stio's internal AI agent, living in Slack. It queries our Snowflake warehouse, but the useful part is that it also reads three repositories: our dbt project, its own source, and our org's Claude skills. That means it can explain the business logic behind a data mart instead of just handing back a number. Right now it is the only way anyone at the company other than me can get at that logic. When it gets something wrong, it opens a pull request against itself and I review it.",
+      "Stio's internal AI agent, living in Slack on Anthropic's Managed Agents. It queries our Snowflake warehouse, but the useful part is that it also reads the repositories where the business logic actually lives: the dbt models, our company Claude skills, and its own source. So it can explain why a number means what it means instead of just handing the number back. Eleven of us use it. When it gets something wrong it opens a pull request against itself, and before proposing a change it checks whether I already turned that idea down.",
     status: "Live · Internal",
     links: [],
     visual: "agent",
@@ -41,7 +41,7 @@ const FEATURED: Project[] = [
     ],
     visual: "pages",
     year: "2025–26",
-    tags: ["Web", "Publishing", "Client work"],
+    tags: ["Client work"],
   },
   {
     id: "naur",

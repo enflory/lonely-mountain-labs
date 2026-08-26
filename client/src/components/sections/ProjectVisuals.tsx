@@ -153,10 +153,10 @@ function AgentViz() {
   }, []);
 
   const steps = [
-    { label: "read", detail: "dbt/marts/fct_orders.sql" },
-    { label: "query", detail: "snowflake · 1.2s" },
-    { label: "answer", detail: "net sales, wk 34" },
-    { label: "pr", detail: "memory/skills updated" },
+    { label: "read", detail: "dbt + skills repos" },
+    { label: "query", detail: "snowflake" },
+    { label: "answer", detail: "the number, and why" },
+    { label: "pr", detail: "files one on itself" },
   ];
   const active = t % steps.length;
 
