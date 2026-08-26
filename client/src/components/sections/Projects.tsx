@@ -21,7 +21,7 @@ const FEATURED: Project[] = [
     title: "Pinecone",
     tagline: "An agent that reads the codebase, not just the database.",
     description:
-      "Stio's internal AI agent, living in Slack on Anthropic's Managed Agents. It queries our Snowflake warehouse, but the useful part is that it also reads the repositories where the business logic actually lives: the dbt models, our company Claude skills, and its own source. So it can explain why a number means what it means instead of just handing the number back. Eleven of us use it. When it gets something wrong it opens a pull request against itself, and before proposing a change it checks whether I already turned that idea down.",
+      "Stio's internal AI agent, living in Slack on Anthropic's Managed Agents. It queries our Snowflake warehouse, but the useful part is that it also reads the repositories where the business logic actually lives: the dbt models, our company Claude skills, and its own source. So it can explain why a number means what it means instead of just handing the number back. When it gets something wrong it opens a pull request against itself, and before proposing a change it checks whether I already turned that idea down.",
     status: "Live · Internal",
     links: [],
     visual: "agent",
@@ -48,7 +48,7 @@ const FEATURED: Project[] = [
     title: "naur",
     tagline: "The cells finally got good enough. The canister can go.",
     description:
-      "One device that boils water for dinner and charges the phone, so the stove and the power bank stop being two things you carry, and nothing burns inside the tent. Step one was the unglamorous question: does the physics work, and does the cost? Several weeks of modeling say a qualified yes, and turned up one finding that reorganized the entire design. Prototype is specified and next. The name? Sindarin for fire.",
+      "One device that boils water for dinner in the backcountry and charges the phone, so the stove and the power bank stop being two things you carry, and nothing burns inside the tent. Step one was the unglamorous question: does the physics work, and does the cost? Several weeks of modeling say a qualified yes, and turned up one finding that reorganized the entire design. Prototype is specified and next. The name? Sindarin for fire.",
     status: "Research",
     links: [],
     visual: "heat",
