@@ -11,9 +11,10 @@ export default function Hero() {
 
   // Bottom padding holds the section at its original height on desktop, where
   // the mountain is centered at 52% of the section and a shorter headline would
-  // otherwise pull it up the page. Mobile keeps the original 100px: the artwork
-  // is proportionally shorter there, so the desktop value leaves a dead gap
-  // under the treeline.
+  // otherwise pull it up the page. Mobile keeps the original 100px: under 600px
+  // the artwork is anchored low and scaled past the viewport (see .fn-mountain),
+  // so the treeline already runs off the bottom edge and the taller desktop
+  // padding would only open a gap beneath it.
   return (
     <section
       className="relative overflow-hidden pb-[100px] md:pb-[184px]"
