@@ -48,7 +48,7 @@ const FEATURED: Project[] = [
     title: "naur",
     tagline: "The cells finally got good enough. The canister can go.",
     description:
-      "One device that boils water for dinner in the backcountry and charges the phone, so the stove and the power bank stop being two things to carry, and fossil fuels stay out of the pack. Step one was the unglamorous question: does the physics work, and does the cost? Several weeks of modeling say a qualified yes, and turned up one finding that reorganized the entire design. Prototype is specified and next. The name? Sindarin for fire.",
+      "One device that boils water for dinner in the backcountry and charges the phone, so the stove and the power bank stop being two things to carry, and fossil fuel stays out of the pack. Step one was the unglamorous question: does the physics work, and does the cost? Several weeks of modeling say a qualified yes, and turned up one finding that reorganized the entire design. Prototype is specified and next. The name? Sindarin for fire.",
     status: "Research",
     links: [],
     visual: "heat",
