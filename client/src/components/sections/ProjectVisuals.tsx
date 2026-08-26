@@ -59,48 +59,6 @@ function VolumeViz() {
   );
 }
 
-function VoiceViz() {
-  const [t, setT] = useState(0);
-  useEffect(() => {
-    let raf: number;
-    const start = performance.now();
-    const tick = () => {
-      setT((performance.now() - start) / 1000);
-      raf = requestAnimationFrame(tick);
-    };
-    raf = requestAnimationFrame(tick);
-    return () => cancelAnimationFrame(raf);
-  }, []);
-
-  const bars = 40;
-  return (
-    <div className="w-full h-full flex flex-col justify-center gap-2.5" style={{ padding: "14px 18px" }}>
-      <div className="font-mono text-[10px] text-muted-foreground uppercase" style={{ letterSpacing: "0.08em" }}>
-        <span className="text-accent">&bull;</span> Listening &middot; 02:14
-      </div>
-      <div className="flex items-center justify-center gap-[2px] h-9">
-        {Array.from({ length: bars }).map((_, i) => {
-          const center = bars / 2;
-          const distFromCenter = Math.abs(i - center) / center;
-          const env = 1 - distFromCenter * 0.7;
-          const phase = t * 4 + i * 0.3;
-          const h = (Math.sin(phase) * 0.5 + Math.sin(phase * 2.3) * 0.3 + 0.5) * env * 32 + 2;
-          return (
-            <div
-              key={i}
-              className="rounded-sm"
-              style={{ width: 2, height: h, background: fg, opacity: 0.85 }}
-            />
-          );
-        })}
-      </div>
-      <div className="font-serif text-[11px] italic text-muted-foreground text-center leading-snug">
-        "...the project I'm proudest of..."
-      </div>
-    </div>
-  );
-}
-
 function PagesViz() {
   return (
     <div className="w-full h-full flex items-center justify-center p-4 relative">
@@ -132,120 +90,6 @@ function PagesViz() {
         >
           + edit
         </div>
-      </div>
-    </div>
-  );
-}
-
-function GiftViz() {
-  const days = Array.from({ length: 28 }, (_, i) => i + 1);
-  const marked = [4, 12, 19];
-
-  return (
-    <div className="w-full h-full flex flex-col gap-2" style={{ padding: 14 }}>
-      <div className="flex justify-between items-baseline font-mono text-[9px] text-muted-foreground uppercase" style={{ letterSpacing: "0.08em" }}>
-        <span>October</span>
-        <span>3 upcoming</span>
-      </div>
-      <div className="grid grid-cols-7 gap-[2px] flex-1">
-        {days.map((d) => {
-          const isMarked = marked.includes(d);
-          return (
-            <div
-              key={d}
-              className="flex items-center justify-center font-mono text-[8px] rounded-sm aspect-square"
-              style={{
-                color: isMarked ? "#fff" : fg,
-                background: isMarked ? accent : "transparent",
-                opacity: isMarked ? 1 : 0.5,
-              }}
-            >
-              {d}
-            </div>
-          );
-        })}
-      </div>
-    </div>
-  );
-}
-
-function RangerViz() {
-  const roles = [
-    { co: "Anthropic", role: "Product Engineer", score: 94 },
-    { co: "Vercel", role: "Founding DevRel", score: 88 },
-    { co: "Linear", role: "Product Manager", score: 81 },
-  ];
-
-  return (
-    <div className="w-full h-full flex flex-col justify-center gap-1.5" style={{ padding: "12px 16px" }}>
-      <div className="flex justify-between items-baseline font-mono text-[9px] text-muted-foreground uppercase mb-0.5" style={{ letterSpacing: "0.08em" }}>
-        <span>
-          <span className="text-accent">&bull;</span> Daily briefing
-        </span>
-        <span>3 new roles</span>
-      </div>
-      {roles.map((r, i) => (
-        <div key={i} className="flex items-center gap-2">
-          <span
-            className="font-mono text-[9px] overflow-hidden"
-            style={{ color: fg, width: 50, whiteSpace: "nowrap", textOverflow: "ellipsis" }}
-          >
-            {r.co}
-          </span>
-          <span
-            className="font-serif italic text-[10px] flex-1 overflow-hidden"
-            style={{ color: muted, whiteSpace: "nowrap", textOverflow: "ellipsis" }}
-          >
-            {r.role}
-          </span>
-          <div className="rounded-sm overflow-hidden" style={{ width: 28, height: 3, background: muted + "33" }}>
-            <div style={{ width: `${r.score}%`, height: "100%", background: accent }} />
-          </div>
-          <span className="font-mono text-[9px]" style={{ color: fg, width: 16, textAlign: "right" }}>
-            {r.score}
-          </span>
-        </div>
-      ))}
-    </div>
-  );
-}
-
-function KnowledgeViz() {
-  return (
-    <div className="w-full h-full flex items-center gap-3" style={{ padding: "14px 18px" }}>
-      <div className="flex flex-col gap-[3px] flex-1">
-        {["Architecture", "Tolkien lore", "Swift patterns", "AI prompts"].map((label, i) => (
-          <div key={i} className="flex items-center gap-2">
-            <div
-              className="rounded-sm"
-              style={{
-                width: 6,
-                height: 6,
-                background: i === 0 ? accent : i === 1 ? fg : muted,
-                opacity: i > 1 ? 0.5 : 0.8,
-              }}
-            />
-            <div
-              className="font-mono text-[8px] uppercase"
-              style={{
-                color: i === 0 ? fg : muted,
-                letterSpacing: "0.06em",
-              }}
-            >
-              {label}
-            </div>
-            <div
-              className="flex-1 h-[1px]"
-              style={{ background: `${muted}44` }}
-            />
-            <div
-              className="font-mono text-[8px]"
-              style={{ color: muted }}
-            >
-              {[14, 9, 7, 3][i]}
-            </div>
-          </div>
-        ))}
       </div>
     </div>
   );
@@ -300,22 +144,136 @@ function LotrViz() {
   );
 }
 
+
+function AgentViz() {
+  const [t, setT] = useState(0);
+  useEffect(() => {
+    const id = setInterval(() => setT((v) => v + 1), 1400);
+    return () => clearInterval(id);
+  }, []);
+
+  const steps = [
+    { label: "read", detail: "dbt + skills repos" },
+    { label: "query", detail: "snowflake" },
+    { label: "answer", detail: "the number, and why" },
+    { label: "pr", detail: "files one on itself" },
+  ];
+  const active = t % steps.length;
+
+  return (
+    <div className="w-full h-full flex flex-col justify-center gap-1.5" style={{ padding: "12px 18px" }}>
+      {steps.map((s, i) => {
+        const on = i === active;
+        const done = i < active;
+        return (
+          <div key={s.label} className="flex items-center gap-2.5 font-mono text-[9px]" style={{ letterSpacing: "0.06em" }}>
+            <span
+              className="inline-block rounded-full shrink-0"
+              style={{
+                width: 5,
+                height: 5,
+                background: on ? accent : done ? fg : muted,
+                opacity: on || done ? 1 : 0.4,
+                transition: "background 0.4s, opacity 0.4s",
+              }}
+            />
+            <span
+              className="uppercase shrink-0"
+              style={{ width: 42, color: on ? accent : fg, opacity: on ? 1 : 0.55, transition: "opacity 0.4s, color 0.4s" }}
+            >
+              {s.label}
+            </span>
+            <span
+              className="truncate"
+              style={{ color: fg, opacity: on ? 0.75 : 0.25, transition: "opacity 0.4s" }}
+            >
+              {s.detail}
+            </span>
+          </div>
+        );
+      })}
+    </div>
+  );
+}
+
+function HeatViz() {
+  const [t, setT] = useState(0);
+  useEffect(() => {
+    let raf: number;
+    const start = performance.now();
+    const tick = () => {
+      setT((performance.now() - start) / 1000);
+      raf = requestAnimationFrame(tick);
+    };
+    raf = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(raf);
+  }, []);
+
+  // 0 -> 92 C over 2.2s, hold, repeat
+  const cycle = t % 5;
+  const ramp = Math.min(1, cycle / 2.2);
+  const temp = Math.round(10 + ramp * 82);
+  const wh = Math.round(ramp * 51);
+
+  return (
+    <div className="w-full h-full flex items-center gap-4" style={{ padding: "12px 18px" }}>
+      <div className="relative shrink-0" style={{ width: 34, height: 48 }}>
+        {/* vessel */}
+        <div
+          className="absolute inset-x-0 bottom-0"
+          style={{ height: 44, border: `1px solid ${fg}66`, borderRadius: "2px 2px 4px 4px", overflow: "hidden" }}
+        >
+          <div
+            className="absolute inset-x-0 bottom-0"
+            style={{ height: `${20 + ramp * 55}%`, background: accent, opacity: 0.18 + ramp * 0.5, transition: "opacity 0.1s" }}
+          />
+        </div>
+        {/* steam */}
+        {ramp > 0.85 &&
+          [0, 1, 2].map((i) => (
+            <div
+              key={i}
+              className="absolute rounded-full"
+              style={{
+                width: 2,
+                height: 2,
+                left: 8 + i * 9,
+                top: -2 + Math.sin(t * 3 + i) * 3,
+                background: fg,
+                opacity: 0.35,
+              }}
+            />
+          ))}
+      </div>
+
+      <div className="flex flex-col gap-1 min-w-0">
+        <div className="font-mono text-[9px] uppercase" style={{ letterSpacing: "0.12em", color: muted }}>
+          one heat &middot; 0.4 L
+        </div>
+        <div className="font-serif" style={{ fontSize: 20, lineHeight: 1, color: fg }}>
+          {temp}
+          <span style={{ fontSize: 11, color: muted }}>&deg;C</span>
+        </div>
+        <div className="font-mono text-[9px]" style={{ letterSpacing: "0.08em", color: accent }}>
+          {wh} Wh drawn
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export default function ProjectVisual({ kind }: { kind: string }) {
   switch (kind) {
     case "volume":
       return <VolumeViz />;
-    case "voice":
-      return <VoiceViz />;
     case "pages":
       return <PagesViz />;
-    case "gift":
-      return <GiftViz />;
-    case "knowledge":
-      return <KnowledgeViz />;
-    case "ranger":
-      return <RangerViz />;
     case "lotr":
       return <LotrViz />;
+    case "agent":
+      return <AgentViz />;
+    case "heat":
+      return <HeatViz />;
     default:
       return null;
   }

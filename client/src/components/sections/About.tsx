@@ -1,38 +1,64 @@
-import { motion } from "framer-motion";
+const LINKS = [
+  { label: "LinkedIn", href: "https://www.linkedin.com/in/ethanflory/" },
+  { label: "GitHub", href: "https://github.com/enflory" },
+  { label: "Email", href: "mailto:ethan@lonelymtnlabs.com" },
+];
 
 export default function About() {
   return (
-    <section id="about" className="py-24 bg-background/50 backdrop-blur-sm">
-      <div className="container mx-auto px-6">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">
-              About Lonely Mountain Labs
-            </h2>
-            
-            <div className="h-1 w-20 bg-accent rounded-full mb-8" />
-          </motion.div>
+    <section
+      id="about"
+      className="px-5 md:px-14"
+      style={{ paddingTop: 72, paddingBottom: 40, borderTop: "1px solid #d4c9af" }}
+    >
+      {/* Block is centered; text stays left-aligned so the paragraphs keep a
+          hard left edge to read against. */}
+      <div className="mx-auto" style={{ maxWidth: 680 }}>
+        <h2
+          className="font-serif m-0 mb-7"
+          style={{
+            fontWeight: 400,
+            fontSize: "clamp(30px, 3.6vw, 44px)",
+            lineHeight: 1.05,
+            letterSpacing: "-0.02em",
+          }}
+        >
+          Many fields, one habit.
+        </h2>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-          >
-            <div className="space-y-6 text-lg text-muted-foreground font-body leading-relaxed">
-              <p>
-                Lonely Mountain Labs builds purposeful tools that help people hold onto what matters, whether that’s preserving a life story or simply keeping track of the details that tend to slip away.
-              </p>
-              <p>
-                It’s an outpost for exploring what becomes possible when AI does the heavy lifting, leaving people with more space for what brings meaning and joy. Some projects are experiments, others may grow into something larger, but they’re all driven by the same principle: make the important things easier to keep.
-              </p>
-            </div>
-          </motion.div>
+        <div className="font-serif text-[17px] leading-relaxed" style={{ color: "#3a3a35" }}>
+          <p className="m-0 mb-4" style={{ textWrap: "pretty" }}>
+            I&rsquo;m Ethan Flory. I started in mechanical engineering, then spent four
+            years teaching heat transfer, thermodynamics, and fluid mechanics to
+            operators in the Navy&rsquo;s nuclear power program. After that, finance at
+            Nike. For the last five years I&rsquo;ve built Stio&rsquo;s data function from
+            nothing: the warehouse, the models, the reporting, and now the AI agent
+            that sits on top of all of it.
+          </p>
+          <p className="m-0" style={{ textWrap: "pretty" }}>
+            The pattern doesn&rsquo;t change much. Find the gap, learn the domain fast
+            enough to be useful, build the thing. The projects below are that same
+            habit pointed at whatever I was curious about, which is why a
+            techno-economic model sits next to a pixel-art game.
+          </p>
+        </div>
+
+        <div
+          className="flex flex-wrap items-center gap-x-5 gap-y-2 mt-8 font-mono text-[11px] uppercase"
+          style={{ letterSpacing: "0.1em" }}
+        >
+          {LINKS.map((l) => (
+            <a
+              key={l.label}
+              href={l.href}
+              target={l.href.startsWith("mailto:") ? undefined : "_blank"}
+              rel="noreferrer"
+              className="fn-link no-underline"
+              style={{ color: "#1c1d1a" }}
+            >
+              {l.label}
+            </a>
+          ))}
         </div>
       </div>
     </section>

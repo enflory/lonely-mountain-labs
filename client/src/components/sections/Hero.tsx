@@ -9,8 +9,16 @@ export default function Hero() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  // Bottom padding holds the section at its original height on desktop, where
+  // the mountain is centered at 52% of the section and a shorter headline would
+  // otherwise pull it up the page. Mobile keeps the original 100px: the artwork
+  // is proportionally shorter there, so the desktop value leaves a dead gap
+  // under the treeline.
   return (
-    <section className="relative overflow-hidden" style={{ padding: "60px 56px 100px" }}>
+    <section
+      className="relative overflow-hidden pb-[100px] md:pb-[184px]"
+      style={{ paddingTop: 60, paddingLeft: 56, paddingRight: 56 }}
+    >
       {/* Mountain backdrop */}
       <div
         className="absolute pointer-events-none"
@@ -57,10 +65,8 @@ export default function Hero() {
             margin: 0,
           }}
         >
-          Tools that make<br />
-          <span className="italic font-light text-accent">the important things</span>
-          <br />
-          easier to keep.
+          Chase the<br />
+          <span className="italic font-light text-accent">unknown.</span>
         </h1>
 
         <div className="fn-anim-3 flex flex-wrap gap-3.5 mt-9">

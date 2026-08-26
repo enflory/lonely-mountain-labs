@@ -137,6 +137,64 @@
   color: #9c6b3a;
 }
 
+/* External link in a card footer — ember, so it reads as the one live
+   thing in a row of muted mono metadata. */
+.fn-extlink {
+  color: #9c6b3a;
+  text-decoration: none;
+  border-bottom: 1px solid #9c6b3a55;
+  padding-bottom: 1px;
+  transition: border-color 0.2s, color 0.2s;
+}
+.fn-extlink:hover {
+  color: #7d5329;
+  border-bottom-color: #7d5329;
+}
+/* Render the arrow in upright sans at the navbar's size. Inheriting the
+   link's italic serif draws a noticeably longer, slanted glyph, so the
+   card arrows and the navbar arrows would not match. */
+.fn-extlink .fn-arrow {
+  display: inline-block;
+  font-family: var(--font-sans);
+  font-style: normal;
+  font-size: 13px;
+  transition: transform 0.2s;
+}
+.fn-extlink:hover .fn-arrow {
+  transform: translate(2px, -2px);
+}
+
+/* Outbound link in the navbar — chipped, so it reads as leaving the site
+   rather than jumping down the page. */
+.fn-navext {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px 11px;
+  border: 1px solid #d4c9af;
+  background: #fcf9f0;
+  border-radius: 2px;
+  color: #1c1d1a;
+  text-decoration: none;
+  transition: border-color 0.2s, color 0.2s, background 0.2s;
+}
+.fn-navext:hover {
+  border-color: #9c6b3a80;
+  color: #9c6b3a;
+  background: #fffdf7;
+}
+
+/* Field note row hover */
+.fn-note {
+  transition: background-color 0.25s;
+}
+.fn-note:hover {
+  background-color: #fcf9f0;
+}
+.fn-note:hover h3 {
+  color: #9c6b3a;
+}
+
 /* Fade-up animation classes */
 .fn-anim-1 { animation: fnFadeUp 0.9s ease-out 0.1s both; }
 .fn-anim-2 { animation: fnFadeUp 0.9s ease-out 0.3s both; }
