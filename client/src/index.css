@@ -150,8 +150,14 @@
   color: #7d5329;
   border-bottom-color: #7d5329;
 }
+/* Render the arrow in upright sans at the navbar's size. Inheriting the
+   link's italic serif draws a noticeably longer, slanted glyph, so the
+   card arrows and the navbar arrows would not match. */
 .fn-extlink .fn-arrow {
   display: inline-block;
+  font-family: var(--font-sans);
+  font-style: normal;
+  font-size: 13px;
   transition: transform 0.2s;
 }
 .fn-extlink:hover .fn-arrow {
