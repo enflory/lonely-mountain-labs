@@ -203,9 +203,8 @@
    row of fir silhouettes. Squeezed onto a 390px screen those firs merge into
    one solid mass, which reads as a grey stripe painted across the hero rather
    than as trees. Blowing the artwork up well past the viewport keeps the
-   individual trees resolvable, and dropping the anchor point pushes the peak
-   behind the headline so the treeline lands under the buttons instead of
-   through them. */
+   individual trees resolvable, and the anchor point sets the composition:
+   summit in the clear space below the headline, treeline up in the buttons. */
 .fn-mountain {
   position: absolute;
   left: 50%;
@@ -218,15 +217,19 @@
 /* 599px, not the 768px md breakpoint: the trees only start merging once the
    drawing renders under ~650px wide, which the desktop rule does not do until
    the viewport is below about 590px. Handing 600-767px back to the desktop
-   treatment keeps the summit in frame on tablets and wide phones, where 240vw
+   treatment keeps the summit in frame on tablets and wide phones, where 235vw
    would crop to bare hillside. */
 @media (max-width: 599px) {
   .fn-mountain {
-    top: 70%;
-    /* 240vw keeps the framing proportional on small phones; the 1000px cap
-       stops the drawing from running away near the breakpoint, where 240vw
-       would crop to bare hillside with neither summit nor treeline. */
-    width: min(240vw, 1000px);
+    /* 67.5% puts the summit in the gap under the headline and lands the
+       treeline in the button stack, with the tree band still running off the
+       section's bottom edge. It is tuned against the phone spacing in
+       Hero.tsx: change one and re-check the other. */
+    top: 67.5%;
+    /* 235vw keeps the framing proportional on small phones; the 900px cap
+       stops the drawing from running away near the breakpoint, where 235vw
+       would push the summit back up behind the headline. */
+    width: min(235vw, 900px);
   }
 }
 

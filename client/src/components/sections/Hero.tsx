@@ -9,16 +9,17 @@ export default function Hero() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // Bottom padding holds the section at its original height on desktop, where
-  // the mountain is centered at 52% of the section and a shorter headline would
-  // otherwise pull it up the page. Mobile keeps the original 100px: under 600px
-  // the artwork is anchored low and scaled past the viewport (see .fn-mountain),
-  // so the treeline already runs off the bottom edge and the taller desktop
-  // padding would only open a gap beneath it.
+  // Every vertical value here is paired, and the phone half switches at 600px
+  // rather than at md, because that is where .fn-mountain hands the artwork
+  // back to the desktop treatment: under 600px the spacing composes the hero
+  // against the blown-up drawing (meta line high, headline in the clear sky
+  // above the summit, links down on the treeline), and from 600px up it is the
+  // untouched original, where the mountain is centered at 52% of the section
+  // and the bottom padding holds the section at its original height.
   return (
     <section
-      className="relative overflow-hidden pb-[100px] md:pb-[184px]"
-      style={{ paddingTop: 60, paddingLeft: 56, paddingRight: 56 }}
+      className="relative overflow-hidden pt-8 min-[600px]:pt-[60px] pb-6 min-[600px]:pb-[100px] md:pb-[184px]"
+      style={{ paddingLeft: 56, paddingRight: 56 }}
     >
       {/* Mountain backdrop. Placement lives in .fn-mountain so the mobile
           breakpoint can override it; parallax rides on the inner wrapper so
@@ -44,8 +45,8 @@ export default function Hero() {
 
       {/* Top meta line */}
       <div
-        className="fn-anim-1 relative z-[1] flex flex-col sm:flex-row justify-between font-mono text-[11px] text-muted-foreground uppercase"
-        style={{ letterSpacing: "0.12em", marginBottom: 80 }}
+        className="fn-anim-1 relative z-[1] mb-11 min-[600px]:mb-20 flex flex-col sm:flex-row justify-between font-mono text-[11px] text-muted-foreground uppercase"
+        style={{ letterSpacing: "0.12em" }}
       >
         <span>
           <span className="text-accent">N&deg; 001</span> &mdash; Field Notes
@@ -54,7 +55,7 @@ export default function Hero() {
         <span>Est. Portland, OR</span>
       </div>
 
-      <div className="relative z-[1] pb-[60px]" style={{ maxWidth: 760 }}>
+      <div className="relative z-[1] pb-0 min-[600px]:pb-[60px]" style={{ maxWidth: 760 }}>
         <h1
           className="fn-anim-2 font-serif"
           style={{
@@ -69,7 +70,9 @@ export default function Hero() {
           <span className="italic font-light text-accent">unknown.</span>
         </h1>
 
-        <div className="fn-anim-3 flex flex-wrap gap-3.5 mt-9">
+        {/* The mobile gap is what drops the two links onto the treeline; the
+            mountain fills the space between them and the headline. */}
+        <div className="fn-anim-3 flex flex-wrap gap-3.5 mt-[240px] min-[600px]:mt-9">
           <a
             href="#projects"
             className="inline-block rounded-sm text-[13px] font-medium no-underline"
