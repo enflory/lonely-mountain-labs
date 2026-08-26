@@ -4,7 +4,12 @@ The website for [Lonely Mountain Labs](https://lonelymtnlabs.com) — an outpost
 
 ## What's Here
 
-The main website — a React + Vite single-page site showcasing Lonely Mountain Labs and its projects (Hush, The Lord of the Rings RPG, Ingolmo, Project Legacy, Career Interviewer, Ranger).
+The main website — a React + Vite single-page site. The page runs Hero → About → Projects → Notes → Contact.
+
+Projects are presented in two tiers:
+
+- **Featured** — Pinecone (Stio's internal AI agent), Susy Flory & Shake Ridge Press (client work), and naur (electric backpacking stove research).
+- **The ledger** — a build-volume stat line plus the two shipped projects worth clicking: The Lord of the Rings RPG and Hush.
 
 ## Design
 

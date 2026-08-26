@@ -37,10 +37,12 @@ export default function Navbar() {
         </div>
 
         {/* Desktop Nav */}
-        <div className="hidden md:flex items-center gap-8 text-[13px] font-medium" style={{ letterSpacing: "0.02em" }}>
+        <div className="hidden md:flex items-center gap-6 lg:gap-8 text-[13px] font-medium" style={{ letterSpacing: "0.02em" }}>
+          <button onClick={() => scrollToSection("#about")} className="fn-link" style={{ borderBottom: "none" }}>About</button>
           <button onClick={() => scrollToSection("#projects")} className="fn-link" style={{ borderBottom: "none" }}>Projects</button>
           <button onClick={() => scrollToSection("#contact")} className="fn-link" style={{ borderBottom: "none" }}>Contact</button>
           <a href="https://github.com/enflory" target="_blank" rel="noreferrer" className="fn-link" style={{ borderBottom: "none" }}>GitHub</a>
+          <a href="https://www.linkedin.com/in/ethanflory/" target="_blank" rel="noreferrer" className="fn-link" style={{ borderBottom: "none" }}>LinkedIn</a>
         </div>
 
         {/* Mobile Toggle */}
@@ -55,9 +57,11 @@ export default function Navbar() {
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
         <div className="absolute top-full left-0 right-0 bg-[#f4efe4] border-b border-[#d4c9af] shadow-lg p-6 md:hidden flex flex-col gap-4">
+          <button onClick={() => scrollToSection("#about")} className="text-left text-lg font-serif text-foreground hover:text-accent">About</button>
           <button onClick={() => scrollToSection("#projects")} className="text-left text-lg font-serif text-foreground hover:text-accent">Projects</button>
           <button onClick={() => scrollToSection("#contact")} className="text-left text-lg font-serif text-foreground hover:text-accent">Contact</button>
           <a href="https://github.com/enflory" target="_blank" rel="noreferrer" className="text-lg font-serif text-foreground hover:text-accent">GitHub</a>
+          <a href="https://www.linkedin.com/in/ethanflory/" target="_blank" rel="noreferrer" className="text-lg font-serif text-foreground hover:text-accent">LinkedIn</a>
         </div>
       )}
     </nav>

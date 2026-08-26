@@ -137,6 +137,17 @@
   color: #9c6b3a;
 }
 
+/* Field note row hover */
+.fn-note {
+  transition: background-color 0.25s;
+}
+.fn-note:hover {
+  background-color: #fcf9f0;
+}
+.fn-note:hover h3 {
+  color: #9c6b3a;
+}
+
 /* Fade-up animation classes */
 .fn-anim-1 { animation: fnFadeUp 0.9s ease-out 0.1s both; }
 .fn-anim-2 { animation: fnFadeUp 0.9s ease-out 0.3s both; }
