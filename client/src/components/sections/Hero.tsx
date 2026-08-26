@@ -57,10 +57,10 @@ export default function Hero() {
             margin: 0,
           }}
         >
-          Tools that make<br />
-          <span className="italic font-light text-accent">the important things</span>
+          Batteries, memoirs,<br />
+          <span className="italic font-light text-accent">pixel-art roads.</span>
           <br />
-          easier to keep.
+          I build to learn.
         </h1>
 
         <div className="fn-anim-3 flex flex-wrap gap-3.5 mt-9">
