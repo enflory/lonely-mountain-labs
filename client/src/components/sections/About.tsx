@@ -1,5 +1,5 @@
 const LINKS = [
-  { label: "LinkedIn", href: "https://www.linkedin.com/in/ethanflory/" },
+  { label: "LinkedIn", href: "https://www.linkedin.com/in/ethan-flory/" },
   { label: "GitHub", href: "https://github.com/enflory" },
   { label: "Email", href: "mailto:ethan@lonelymtnlabs.com" },
 ];
