@@ -43,7 +43,7 @@ export default function Navbar() {
           <button onClick={() => scrollToSection("#projects")} className="fn-link" style={{ borderBottom: "none" }}>Projects</button>
           <button onClick={() => scrollToSection("#contact")} className="fn-link" style={{ borderBottom: "none" }}>Contact</button>
           <a href="https://github.com/enflory" target="_blank" rel="noreferrer" className="fn-navext">GitHub <ExternalArrow /></a>
-          <a href="https://www.linkedin.com/in/ethanflory/" target="_blank" rel="noreferrer" className="fn-navext">LinkedIn <ExternalArrow /></a>
+          <a href="https://www.linkedin.com/in/ethan-flory/" target="_blank" rel="noreferrer" className="fn-navext">LinkedIn <ExternalArrow /></a>
         </div>
 
         {/* Mobile Toggle */}
@@ -63,7 +63,7 @@ export default function Navbar() {
           <button onClick={() => scrollToSection("#contact")} className="text-left text-lg font-serif text-foreground hover:text-accent">Contact</button>
           <div className="flex flex-wrap gap-3 pt-2">
             <a href="https://github.com/enflory" target="_blank" rel="noreferrer" className="fn-navext text-base font-serif">GitHub <ExternalArrow /></a>
-            <a href="https://www.linkedin.com/in/ethanflory/" target="_blank" rel="noreferrer" className="fn-navext text-base font-serif">LinkedIn <ExternalArrow /></a>
+            <a href="https://www.linkedin.com/in/ethan-flory/" target="_blank" rel="noreferrer" className="fn-navext text-base font-serif">LinkedIn <ExternalArrow /></a>
           </div>
         </div>
       )}
