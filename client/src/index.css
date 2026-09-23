@@ -137,6 +137,22 @@
   color: #9c6b3a;
 }
 
+/* A card with an href is clickable anywhere: the title link stretches over
+   the whole card, and the footer links sit above it so they still work. */
+.fn-cardlink {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.fn-cardlink::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+}
+.fn-card:hover .fn-cardlink {
+  color: #9c6b3a;
+}
+
 /* External link in a card footer — ember, so it reads as the one live
    thing in a row of muted mono metadata. */
 .fn-extlink {
