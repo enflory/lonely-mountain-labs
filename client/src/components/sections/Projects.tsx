@@ -47,9 +47,9 @@ const FEATURED: Project[] = [
   {
     id: "energy",
     title: "The Energy Transition for the Rest of Us",
-    tagline: "Energy podcasts, read closely enough to quote in a meeting.",
+    tagline: "Where I learned about the energy transition, in plain language.",
     description:
-      "Plain-language notes on the energy transition, built from primary sources: nearly 200 of them, covering every episode of the Catalyst and Critical Capital podcasts and every Steel For Fuel essay. Each note is written to a spec that asks for a thesis, not a summary, with the argument kept in prose and a section for where the claims are contested. Then an agent that didn't write it checks it against the source. That step earns its place: one pass over 54 notes made 195 corrections, including an answer that inverted its essay's conclusion.",
+      "It started in a work meeting, when people asked me about the environmental impact of AI data centers and I found myself relaying podcasts and essays I'd learned from. I wished I had something to hand them. So I built it: a polished, plain-language note on every episode of the Catalyst and Critical Capital podcasts and every Steel For Fuel essay, nearly 200 in all, written for a smart reader who doesn't work in energy. Each one is checked against its source by an agent that didn't write it.",
     status: "Live · Ongoing",
     links: [
       { label: "Read the notes", href: "https://github.com/enflory/energy-transition-rest-of-us" },

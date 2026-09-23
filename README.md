@@ -8,8 +8,8 @@ The main website — a React + Vite single-page site. The page runs Hero → Abo
 
 Projects are presented in two tiers:
 
-- **Featured** — Pinecone (Stio's internal AI agent), Susy Flory & Shake Ridge Press (client work), and naur (electric backpacking stove research).
-- **The ledger** — a build-volume stat line plus the two shipped projects worth clicking: The Lord of the Rings RPG and Hush.
+- **Featured** — Pinecone (Stio's internal AI agent), Susy Flory & Shake Ridge Press (client work), and The Energy Transition for the Rest of Us (plain-language notes on energy podcasts and essays).
+- **The ledger** — a build-volume stat line plus three smaller projects: naur (electric backpacking stove research), The Lord of the Rings RPG, and Hush.
 
 ## Design
 
