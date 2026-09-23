@@ -45,21 +45,35 @@ const FEATURED: Project[] = [
     tags: ["Client work"],
   },
   {
+    id: "energy",
+    title: "The Energy Transition for the Rest of Us",
+    tagline: "Energy podcasts, read closely enough to quote in a meeting.",
+    description:
+      "Plain-language notes on the energy transition, built from primary sources: nearly 200 of them, covering every episode of the Catalyst and Critical Capital podcasts and every Steel For Fuel essay. Each note is written to a spec that asks for a thesis, not a summary, with the argument kept in prose and a section for where the claims are contested. Then an agent that didn't write it checks it against the source. That step earns its place: one pass over 54 notes made 195 corrections, including an answer that inverted its essay's conclusion.",
+    status: "Live · Ongoing",
+    links: [
+      { label: "Read the notes", href: "https://github.com/enflory/energy-transition-rest-of-us" },
+    ],
+    visual: "notes",
+    year: "2026",
+    tags: ["Energy", "Agents", "Python"],
+  },
+];
+
+// Tier 2 — the ledger. Volume is the point; these three are the ones worth a look.
+const SHIPPED: Project[] = [
+  {
     id: "naur",
     title: "naur",
     tagline: "The cells finally got good enough. The canister can go.",
     description:
-      "One device that boils water for dinner in the backcountry and charges the phone, so the stove and the power bank stop being two things to carry, and fossil fuel stays out of the pack. Step one was the unglamorous question: does the physics work, and does the cost? Several weeks of modeling say a qualified yes, and turned up one finding that reorganized the entire design. Prototype is specified and next. The name? Sindarin for fire.",
+      "One device that boils water for dinner in the backcountry and charges the phone, so the stove and the power bank stop being two things to carry, and fossil fuel stays out of the pack. For now it's a techno-economics question: do the physics and the cost both work? The name is Sindarin for fire.",
     status: "Research",
     links: [],
     visual: "heat",
     year: "2026",
     tags: ["Hardware", "Batteries", "Techno-economics"],
   },
-];
-
-// Tier 2 — the ledger. Volume is the point; these two are the ones worth clicking.
-const SHIPPED: Project[] = [
   {
     id: "lotr",
     title: "The Lord of the Rings RPG",
@@ -268,13 +282,13 @@ export default function Projects() {
             <p className="font-serif text-[19px] leading-normal m-0" style={{ textWrap: "pretty" }}>
               Twenty repositories since October 2025. Most were a weekend or two and
               stayed that way: a read-it-later app, a rent-versus-buy model, a podcast
-              chatbot, a native tree finder. The habit is the point. These two are the
-              ones worth your click.
+              chatbot, a native tree finder. The habit is the point. These three are the
+              ones worth a closer look.
             </p>
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {SHIPPED.map((p, i) => (
             <Card key={p.id} project={p} index={FEATURED.length + i + 1} compact />
           ))}
