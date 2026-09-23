@@ -10,6 +10,8 @@ type Project = {
   description: string;
   status: string;
   links: Link[];
+  // When set, the whole card is a link here, not just its footer links.
+  href?: string;
   visual: string;
   year: string;
   tags: string[];
@@ -52,8 +54,10 @@ const FEATURED: Project[] = [
       "It started in a work meeting, when people asked me about the environmental impact of AI data centers and I found myself relaying podcasts and essays I'd learned from. I wished I had something to hand them. So I built it: a polished, plain-language note on every episode of the Catalyst and Critical Capital podcasts and every Steel For Fuel essay, nearly 200 in all, written for a smart reader who doesn't work in energy. Each one is checked against its source by an agent that didn't write it.",
     status: "Live · Ongoing",
     links: [
-      { label: "Read the notes", href: "https://github.com/enflory/energy-transition-rest-of-us" },
+      { label: "Read the notes", href: "https://energy.lonelymtnlabs.com" },
+      { label: "Code", href: "https://github.com/enflory/energy-transition-rest-of-us" },
     ],
+    href: "https://energy.lonelymtnlabs.com",
     visual: "notes",
     year: "2026",
     tags: ["Energy", "Agents", "Python"],
@@ -155,7 +159,13 @@ function Card({
           letterSpacing: "-0.015em",
         }}
       >
-        {p.title}
+        {p.href ? (
+          <a href={p.href} target="_blank" rel="noreferrer" className="fn-cardlink">
+            {p.title}
+          </a>
+        ) : (
+          p.title
+        )}
       </h3>
 
       <p
@@ -201,7 +211,7 @@ function Card({
                 href={l.href}
                 target="_blank"
                 rel="noreferrer"
-                className="fn-extlink font-serif italic normal-case text-[15px]"
+                className="fn-extlink relative z-[1] font-serif italic normal-case text-[15px]"
                 style={{ letterSpacing: "normal" }}
               >
                 {l.label} <ExternalArrow />
