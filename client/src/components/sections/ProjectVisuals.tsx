@@ -262,6 +262,56 @@ function HeatViz() {
   );
 }
 
+function NotesViz() {
+  const [t, setT] = useState(0);
+  useEffect(() => {
+    const id = setInterval(() => setT((v) => v + 1), 900);
+    return () => clearInterval(id);
+  }, []);
+
+  // A note on the left; the three verification passes tick off on the right.
+  const checks = ["fact", "forest", "attribution"];
+  const passed = t % (checks.length + 2);
+  const verified = passed > checks.length;
+
+  return (
+    <div className="w-full h-full flex items-center gap-5" style={{ padding: "12px 18px" }}>
+      <div
+        className="shrink-0 flex flex-col gap-[3px]"
+        style={{ width: 92, padding: "6px 8px", background: "#fffaf0", border: `1px solid ${fg}33` }}
+      >
+        <div className="font-serif italic" style={{ fontSize: 7, color: fg, lineHeight: 1.2 }}>
+          The question
+        </div>
+        {[1, 0.85, 0.95, 0.6].map((w, i) => (
+          <div key={i} style={{ height: 2, width: `${w * 100}%`, background: fg, opacity: 0.25 }} />
+        ))}
+        <div className="font-serif italic" style={{ fontSize: 7, color: accent, lineHeight: 1.2 }}>
+          Where it&rsquo;s contested
+        </div>
+        {[0.9, 0.5].map((w, i) => (
+          <div key={i} style={{ height: 2, width: `${w * 100}%`, background: fg, opacity: 0.25 }} />
+        ))}
+      </div>
+
+      <div className="flex flex-col gap-1 min-w-0 font-mono text-[9px] uppercase" style={{ letterSpacing: "0.08em" }}>
+        {checks.map((c, i) => {
+          const done = i < passed;
+          return (
+            <div key={c} className="flex items-center gap-2" style={{ color: fg, opacity: done ? 0.85 : 0.3, transition: "opacity 0.4s" }}>
+              <span style={{ width: 8, color: done ? accent : muted }}>{done ? "\u2713" : "\u00b7"}</span>
+              {c}
+            </div>
+          );
+        })}
+        <div style={{ color: accent, visibility: verified ? "visible" : "hidden", letterSpacing: "0.12em" }}>
+          verified
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export default function ProjectVisual({ kind }: { kind: string }) {
   switch (kind) {
     case "volume":
@@ -274,6 +324,8 @@ export default function ProjectVisual({ kind }: { kind: string }) {
       return <AgentViz />;
     case "heat":
       return <HeatViz />;
+    case "notes":
+      return <NotesViz />;
     default:
       return null;
   }

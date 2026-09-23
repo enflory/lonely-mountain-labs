@@ -36,7 +36,7 @@ cp -r dist/public/* docs/                # copy to GitHub Pages dir
 - The `server/` directory and database config (`drizzle.config.ts`) are artifacts from the original Replit full-stack setup. They are not used for the current static deployment.
 - The Replit-specific Vite plugins are conditionally loaded and only activate in a Replit environment.
 - `About.tsx` is the identity section: who Ethan is, the career arc, and outbound links (LinkedIn, GitHub, email). It carries the frame that makes the varied project list read as range rather than randomness.
-- `Projects.tsx` renders two tiers from two arrays. `FEATURED` (Pinecone, Susy Flory & Shake Ridge Press, naur) gets full-size cards; `SHIPPED` (LOTR RPG, Hush) gets `compact` cards under an "Also in the lab" stat line. Both use the same `Card` component; card links come from a `links: {label, href}[]` array.
+- `Projects.tsx` renders two tiers from two arrays. `FEATURED` (Pinecone, Susy Flory & Shake Ridge Press, The Energy Transition for the Rest of Us) gets full-size cards; `SHIPPED` (naur, LOTR RPG, Hush) gets `compact` cards under an "Also in the lab" stat line. Both use the same `Card` component; card links come from a `links: {label, href}[]` array.
 - `Notes.tsx` renders **nothing** while its `NOTES` array is empty, so the site never advertises writing it does not have. Add an entry and the section appears.
 - The Pinecone copy was written against a refreshed local mirror of `eflory-stio/pinecone` (synced 2026-08-24, deployed agent version 19). The canonical repo lives in Stio's GitHub org and is not visible from Ethan's personal account, so re-verify before editing that card. Keep the copy at the level of architecture and outcome: no Stio table names, internal repo names, coworker names, or business figures.
 - `client/public/assets/mt_hood_clean.svg` — Mt Hood illustration used as the hero backdrop.
@@ -44,5 +44,5 @@ cp -r dist/public/* docs/                # copy to GitHub Pages dir
   drawing renders below roughly 650px wide, which is why `.fn-mountain` in `index.css`
   blows the artwork up past the viewport under 600px instead of scaling it down. Shrinking
   the mobile width brings the grey stripe back.
-- `ProjectVisuals.tsx` contains the animated mini-visuals rendered inside each project card. Live kinds: `volume` (Hush), `pages` (Susy work), `lotr` (LOTR RPG), `agent` (Pinecone), `heat` (naur). Visuals for retired tiles were removed rather than left as dead code.
+- `ProjectVisuals.tsx` contains the animated mini-visuals rendered inside each project card. Live kinds: `volume` (Hush), `pages` (Susy work), `lotr` (LOTR RPG), `agent` (Pinecone), `heat` (naur), `notes` (Energy Transition). Visuals for retired tiles were removed rather than left as dead code.
 - Framer Motion is still a dependency but is no longer used in the current components. It can be removed if desired.
